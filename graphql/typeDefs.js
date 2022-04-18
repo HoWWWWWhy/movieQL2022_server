@@ -1,16 +1,20 @@
 import { gql } from "apollo-server";
 
 const typeDefs = gql`
-  type Person {
+  type Movie {
     id: Int!
     name: String!
-    age: Int!
-    gender: String!
+    score: Int!
   }
 
   type Query {
-    people: [Person]!
-    person(id: Int!): Person
+    movies: [Movie]!
+    movie(id: Int!): Movie
+  }
+
+  type Mutation {
+    addMovie(name: String!, score: Int!): Movie!
+    deleteMovie(id: Int!): Boolean!
   }
 `;
 
