@@ -10,9 +10,11 @@
   "keywords": [],
   "author": "HoWWWWWhy",
   "license": "ISC",
+  "type": "module",
   "dependencies": {
     "apollo-server": "^3.6.7",
-    "graphql": "^16.3.0"
+    "graphql": "^16.3.0",
+    "node-fetch": "^3.2.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
