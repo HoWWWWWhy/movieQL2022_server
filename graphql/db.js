@@ -1,9 +1,9 @@
 import fetch from "node-fetch";
 
-const API_URL = "https://yts.mx/api/v2/list_movies.json?";
+const API_URL = "https://yts.mx/api/v2/";
 
 export const getMovies = async (limit, rating) => {
-  let REQUEST_URL = API_URL;
+  let REQUEST_URL = API_URL + "list_movies.json?";
   const defaultLimit = 20;
   const minLimit = 1;
   const maxLimit = 50;
@@ -31,16 +31,19 @@ export const getMovies = async (limit, rating) => {
 
   const response = await fetch(`${REQUEST_URL}`);
   const json = await response.json();
-  return json.data.movies;
   //console.log(json.data.movies);
+
+  return json.data.movies;
 };
 
-//export const getMovies = () => movies;
-
-export const getById = (id) => {
-  const filteredMovies = movies.filter((movie) => movie.id === id);
-  //console.log(filteredPeople);
-  return filteredMovies[0];
+export const getById = async (id) => {
+  let REQUEST_URL =
+    API_URL + "movie_details.json?" + `movie_id=${id}` + "&with_cast=true";
+  //console.log(REQUEST_URL);
+  const response = await fetch(`${REQUEST_URL}`);
+  const json = await response.json();
+  //console.log(json.data.movie);
+  return json.data.movie;
 };
 
 export const addMovie = (title, rating) => {
@@ -62,21 +65,3 @@ export const deleteMovie = (id) => {
     return false;
   }
 };
-
-// export let movies = [
-//   {
-//     id: 0,
-//     name: "Star Wars",
-//     score: 1,
-//   },
-//   {
-//     id: 1,
-//     name: "Avengers",
-//     score: 8,
-//   },
-//   {
-//     id: 2,
-//     name: "The Godfather",
-//     score: 5,
-//   },
-// ];

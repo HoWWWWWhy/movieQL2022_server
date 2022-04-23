@@ -5,9 +5,17 @@ const typeDefs = gql`
     id: Int!
     title: String!
     rating: Float!
-    summary: String!
+    description_full: String
     language: String!
     medium_cover_image: String!
+    imdb_code: String!
+    cast: [Cast]
+  }
+
+  type Cast {
+    name: String!
+    character_name: String!
+    url_small_image: String!
   }
 
   type Query {
