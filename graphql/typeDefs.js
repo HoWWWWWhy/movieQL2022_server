@@ -5,6 +5,7 @@ const typeDefs = gql`
     id: Int!
     title: String!
     rating: Float!
+    year: String!
     description_full: String
     language: String!
     medium_cover_image: String!
@@ -19,7 +20,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    movies(limit: Int, rating: Float): [Movie]!
+    movies(limit: Int, rating: Float, sort_by: String): [Movie]!
     movie(id: Int!): Movie
   }
 

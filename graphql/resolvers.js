@@ -2,7 +2,8 @@ import { getMovies, getById, deleteMovie, addMovie } from "./db.js";
 
 const resolvers = {
   Query: {
-    movies: (_, { limit, rating }) => getMovies(limit, rating),
+    movies: (_, { limit, rating, sort_by }) =>
+      getMovies(limit, rating, sort_by),
     movie: (_, { id }) => getById(id),
   },
   Mutation: {
