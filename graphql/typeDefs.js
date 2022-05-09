@@ -20,7 +20,12 @@ const typeDefs = gql`
   }
 
   type Query {
-    movies(limit: Int, rating: Float, sort_by: String): [Movie]!
+    movies(
+      limit: Int
+      rating: Float
+      sort_by: String
+      order_by: String
+    ): [Movie]!
     movie(id: Int!): Movie
   }
 

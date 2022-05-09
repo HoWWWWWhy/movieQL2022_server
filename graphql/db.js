@@ -2,7 +2,7 @@ import fetch from "node-fetch";
 
 const API_URL = "https://yts.mx/api/v2/";
 
-export const getMovies = async (limit, rating, sort_by) => {
+export const getMovies = async (limit, rating, sort_by, order_by) => {
   let REQUEST_URL = API_URL + "list_movies.json?";
   const defaultLimit = 20;
   const minLimit = 1;
@@ -32,6 +32,10 @@ export const getMovies = async (limit, rating, sort_by) => {
   //console.log(sort_by);
   if (sort_by) {
     REQUEST_URL += `&sort_by=${sort_by}`;
+  }
+  if (order_by) {
+    //console.log(order_by);
+    REQUEST_URL += `&order_by=${order_by}`;
   }
   //console.log(REQUEST_URL);
   const response = await fetch(`${REQUEST_URL}`);
