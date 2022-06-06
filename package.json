@@ -5,13 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --exec babel-node index.js"
+    "dev": "nodemon --exec babel-node src/index.js",
+    "build": "babel src --out-dir build",
+    "start": "node build/index.js"
   },
   "keywords": [],
   "author": "HoWWWWWhy",
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "@babel/runtime": "^7.18.3",
     "apollo-server": "^3.6.7",
     "graphql": "^16.3.0",
     "node-fetch": "^3.2.3"
@@ -20,6 +23,7 @@
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.9",
     "@babel/node": "^7.16.8",
+    "@babel/plugin-transform-runtime": "^7.18.2",
     "@babel/preset-env": "^7.16.11"
   }
 }
